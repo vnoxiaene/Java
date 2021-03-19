@@ -34,6 +34,7 @@ public class ProgramaBanco {
 
         Conta conta1 = new Conta(01, 128.99f, 200f, lucas);
         Conta conta2 = new Conta(02, 1210.80f, 0f, maria);
+        Map <Integer, Conta> contas = new Hash
 
         int opcao = -1;
 
