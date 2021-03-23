@@ -3,9 +3,9 @@ package servicos;
 import entidades.Filme;
 import entidades.Locacao;
 import entidades.Usuario;
+import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Test;
-import servicos.LocacaoService2;
 import utils.DataUtils;
 
 import java.util.Date;
@@ -24,7 +24,7 @@ public class LocacaoServiceTeste {
         Locacao locacao=service.alugarFilme(usuario,filme);
 
         //verificacao - ver se o resultado retorna oq eh esperado
-        Assert.assertTrue(locacao.getValor()==5.0);
+        Assert.assertThat(locacao.getValor(), CoreMatchers.is(5.0));
         Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataLocacao(), new Date()));
         Assert.assertTrue(DataUtils.isMesmaData(locacao.getDataRetorno(),
                 DataUtils.obterDataComDiferencaDias(1)));
