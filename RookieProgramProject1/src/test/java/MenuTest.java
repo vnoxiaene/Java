@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static org.mockito.Mockito.*;
 
 public class MenuTest {
-    @Test
+    /*@Test
     public void testMenu(){
         Menu menu = mock(Menu.class);
         Scanner mockScanner = mock(Scanner.class);
@@ -14,5 +14,6 @@ public class MenuTest {
         doCallRealMethod().when(menu).menu();
 
         verify(menu,times(1)).menu();
-    }
+    }*/
+
 }

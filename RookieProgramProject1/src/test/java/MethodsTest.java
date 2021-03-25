@@ -1,5 +1,9 @@
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.platform.engine.discovery.MethodSelector;
 
 public class MethodsTest {
@@ -28,6 +32,7 @@ public class MethodsTest {
         Store.product.put(testProduct.getID(), testProduct);
         Methods.searchByName("name");
     }
+
 
 
 

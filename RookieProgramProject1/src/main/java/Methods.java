@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 
 public class Methods {
 
@@ -31,17 +32,41 @@ public class Methods {
 
     public static void searchByName(String nameProduct) {
         if (Store.product.size()>0){
+            int aux=0;
             for (Integer key: Store.product.keySet()){
                 Product product = Store.product.get(key);
-                if (product.getName().equalsIgnoreCase(nameProduct) || product.getName().startsWith(nameProduct)){
+                if (product.getName().equalsIgnoreCase(nameProduct) | product.getName().startsWith(nameProduct)){
                     System.out.println("Product Name: "+product.getName()+"\nPrice: "+product.getPrice()+
                             "\nDescription: "+product.getDescription());
                     System.out.println();
+                    aux=1;
+                } else if(key == Store.product.size()&&aux==0){
+                    System.out.println("Not Found");
                 }
             }
         }else{
             System.out.println("Nothing Registered, Create a new product.");
         }
 
+    }
+    public static Integer getInt(){
+        int number=0;
+        try {
+            number = Integer.parseInt(Store.tc.nextLine());
+        } catch (InputMismatchException | NumberFormatException e) {
+            System.out.println("Invalid");
+            Menu.menu();
+        }
+        return number;
+    }
+    public static Double getDouble(){
+        double number=0;
+        try {
+            number = Integer.parseInt(Store.tc.nextLine());
+        } catch (InputMismatchException | NumberFormatException e) {
+            System.out.println("Invalid");
+            Menu.menu();
+        }
+        return number;
     }
 }

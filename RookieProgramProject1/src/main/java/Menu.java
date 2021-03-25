@@ -1,5 +1,4 @@
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -10,21 +9,13 @@ public class Menu {
         System.out.println("=========================================");
         System.out.println("=============== Welcome ============");
         System.out.println("=========================================");
-
         System.out.println("Selection an option: ");
         System.out.println("1 - Create new product");
         System.out.println("2 - List all products");
         System.out.println("3 - Search by name");
         System.out.println("4 - Exit");
 
-        int option = 0;
-
-        try {
-            option = Integer.parseInt(tc.nextLine());
-        } catch (InputMismatchException | NumberFormatException e) {
-            System.out.println("Invalid Option");
-            Menu.menu();
-        }
+        int option = Methods.getInt();
 
         switch (option) {
             case 1:
@@ -33,24 +24,11 @@ public class Menu {
                 System.out.println("Product name: ");
                 String name = tc.nextLine();
                 System.out.println("Product price: ");
-                double price = 0.0;
-                try {
-                    price = Double.parseDouble(tc.nextLine());
-                } catch (InputMismatchException | NumberFormatException e) {
-                    System.out.println("Invalid Price");
-                    Menu.menu();
-                }
+                double price = Methods.getDouble();
                 System.out.println("Description of the Product: ");
                 String description = tc.nextLine();
-
                 System.out.println("Quantity available: ");
-                int quantity = 0;
-                try {
-                    quantity = Integer.parseInt(tc.nextLine());
-                } catch (InputMismatchException | NumberFormatException e) {
-                    System.out.println("Invalid Quantity");
-                    Menu.menu();
-                }
+                int quantity = Methods.getInt();
                 System.out.println("Product category: ");
                 String category = tc.nextLine();
                 Methods.createProduct(name,price,description,quantity,category);
